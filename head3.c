@@ -6,7 +6,7 @@
 
 static void do_head(FILE *f, long nlines);
 
-#define DEAFULT_N_LINES 8
+#define DEFAULT_N_LINES 8
 
 static struct option longopts[] = {
   {"lines", required_argument, NULL, 'n'},
@@ -18,7 +18,7 @@ int
 main(int argc, char *argv[])
 {
   int opt;
-  long nlines = DEAFULT_N_LINES;
+  long nlines = DEFAULT_N_LINES;
 
   while ((opt = getopt_long(argc, argv, "hn:", longopts, NULL)) != -1) {
     switch(opt) {
