@@ -5,13 +5,17 @@
 int
 main(int argc, char *argv[])
 {
-  if (argc != 3) {
+  int i;
+
+  if (argc < 2) {
     fprintf(stderr, "%s: wrong number of arguments\n", argv[0]);
     exit(1);
   }
-  if (symlink(argv[1], argv[2]) < 0) {
-    perror(argv[1]);
-    exit(1);
+  for (i = 1; i < argc; i++) {
+    if (unlink(argv[i]) < 0) {
+      perror(argv[i]);
+      exit(1);
+    }
   }
   exit(0);
 }
